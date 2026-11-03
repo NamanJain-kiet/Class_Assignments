@@ -1,0 +1,1411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Naman Jain - MCA Student, Aspiring Software Engineer and Developer Portfolio">
+    <title>Naman Jain | Software Developer Portfolio</title>
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f8faff;
+            color: #17233c;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1746a2;
+            --text: #17233c;
+            --muted: #64748b;
+            --white: #ffffff;
+            --border: #e5eaf3;
+            --light-blue: #eff6ff;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 90px 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-heading h2 {
+            font-size: 34px;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .section-heading span {
+            color: var(--primary);
+        }
+
+        /* =========================
+           3D PROGRAMMING BACKGROUND
+        ========================== */
+
+        .code-background {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+            perspective: 1000px;
+        }
+
+        .code-symbol,
+        .language-logo {
+            position: absolute;
+            font-family: monospace;
+            font-weight: 800;
+            user-select: none;
+            transform-style: preserve-3d;
+            animation: float3D 10s ease-in-out infinite;
+        }
+
+        .code-symbol {
+            color: rgba(37, 99, 235, 0.12);
+            font-size: 55px;
+            text-shadow: 5px 5px 0 rgba(37, 99, 235, 0.05);
+        }
+
+        .symbol-1 { top: 14%; left: 7%; }
+        .symbol-2 { top: 35%; right: 9%; animation-delay: 2s; }
+        .symbol-3 { top: 72%; left: 13%; animation-delay: 3s; }
+        .symbol-4 { top: 80%; right: 12%; font-size: 35px; animation-delay: 1s; }
+        .symbol-5 { top: 20%; right: 30%; animation-delay: 4s; }
+        .symbol-6 { top: 55%; left: 45%; animation-delay: 2.5s; }
+        .symbol-7 { top: 90%; left: 65%; animation-delay: 1.5s; }
+
+        .language-logo {
+            padding: 13px 19px;
+            border-radius: 12px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: rgba(37, 99, 235, 0.30);
+            border: 1px solid rgba(37, 99, 235, 0.14);
+            background: rgba(255, 255, 255, 0.55);
+            box-shadow: 8px 8px 20px rgba(30, 64, 175, 0.06);
+            backdrop-filter: blur(4px);
+        }
+
+        .java { top: 12%; right: 18%; animation-delay: 1s; }
+        .python { top: 45%; left: 5%; animation-delay: 3s; }
+        .html { bottom: 15%; left: 35%; animation-delay: 2s; }
+        .css { top: 65%; right: 7%; animation-delay: 4s; }
+        .c-lang { top: 30%; left: 48%; animation-delay: 1.5s; }
+
+        @keyframes float3D {
+            0%, 100% {
+                translate: 0 0;
+                rotate: 0deg;
+                scale: 1;
+            }
+
+            25% {
+                translate: 12px -20px;
+                rotate: 8deg;
+                scale: 1.08;
+            }
+
+            50% {
+                translate: -8px -35px;
+                rotate: -8deg;
+                scale: 1.03;
+            }
+
+            75% {
+                translate: 10px -15px;
+                rotate: 5deg;
+                scale: 1.06;
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-contact {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 19px;
+            border-radius: 8px;
+        }
+
+        .nav-contact:hover {
+            background: var(--primary-dark);
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            padding: 85px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: var(--primary);
+            background: #eaf2ff;
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: 1.15;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero h3 {
+            color: #475569;
+            font-size: 21px;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 620px;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 23px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--light-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Profile card */
+
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .profile-card {
+            width: 290px;
+            height: 340px;
+            border-radius: 25px;
+            background: linear-gradient(145deg, #ffffff, #edf4ff);
+            border: 1px solid #dce8fa;
+            box-shadow: 20px 25px 55px rgba(37, 99, 235, 0.13);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: cardFloat 5s ease-in-out infinite;
+        }
+
+        .profile-initials {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            font-weight: 800;
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.25);
+            margin-bottom: 25px;
+        }
+
+        .profile-card h3 {
+            font-size: 23px;
+        }
+
+        .profile-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .profile-status {
+            margin-top: 20px;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0) rotateY(-5deg); }
+            50% { transform: translateY(-15px) rotateY(5deg); }
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.04);
+        }
+
+        .about-card p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .about-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .detail-item {
+            background: #f8faff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .detail-item strong {
+            color: var(--primary);
+            display: block;
+            font-size: 13px;
+        }
+
+        .detail-item span {
+            font-size: 14px;
+            color: #475569;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.09);
+            border-color: #bfdbfe;
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill-tags span {
+            background: #eff6ff;
+            color: #31558f;
+            padding: 6px 11px;
+            font-size: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .education-list {
+            max-width: 800px;
+            margin: auto;
+            border-left: 2px solid #bfdbfe;
+            padding-left: 30px;
+        }
+
+        .education-item {
+            position: relative;
+            background: white;
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 25px;
+        }
+
+        .education-item::before {
+            content: "";
+            position: absolute;
+            left: -39px;
+            top: 30px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border: 4px solid #dbeafe;
+            border-radius: 50%;
+        }
+
+        .education-item h3 {
+            font-size: 19px;
+        }
+
+        .education-item h4 {
+            color: var(--primary);
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .education-item p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(37, 99, 235, 0.10);
+        }
+
+        .project-top {
+            height: 145px;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 36px;
+            font-weight: 800;
+            font-family: monospace;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================== */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .achievement-card h3 {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .achievement-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CERTIFICATIONS
+        ========================== */
+
+        .certification-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .certification-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            padding: 22px;
+            transition: 0.3s;
+        }
+
+        .certification-card:hover {
+            border-color: #93c5fd;
+            transform: translateY(-4px);
+        }
+
+        .cert-icon {
+            min-width: 42px;
+            height: 42px;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .certification-card h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .certification-card p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .certification-card a {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* =========================
+           LEADERSHIP & ACTIVITIES
+        ========================== */
+
+        .activity-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        .activity-card h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .activity-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
+        }
+
+        .contact-card h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .contact-links a {
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: #eff6ff;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #ffffff;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 25px 15px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-wrapper {
+                margin-top: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-heading h2 {
+                font-size: 28px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero h3 {
+                font-size: 17px;
+            }
+
+            .profile-card {
+                width: 250px;
+                height: 300px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .achievement-grid,
+            .certification-list,
+            .about-details {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card,
+            .contact-card {
+                padding: 24px;
+            }
+
+            .code-symbol {
+                font-size: 30px;
+            }
+
+            .language-logo {
+                font-size: 10px;
+                padding: 7px 10px;
+            }
+
+            .symbol-6,
+            .symbol-7,
+            .c-lang {
+                display: none;
+            }
+
+            .python {
+                left: 2%;
+            }
+
+            .java {
+                right: 3%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         3D PROGRAMMING BACKGROUND
+    ========================== -->
+
+    <div class="code-background" aria-hidden="true">
+        <span class="code-symbol symbol-1">&lt;/&gt;</span>
+        <span class="code-symbol symbol-2">{ }</span>
+        <span class="code-symbol symbol-3">01</span>
+        <span class="code-symbol symbol-4">&lt;div&gt;</span>
+        <span class="code-symbol symbol-5">;</span>
+        <span class="code-symbol symbol-6">#</span>
+        <span class="code-symbol symbol-7">0101</span>
+
+        <span class="language-logo java">JAVA</span>
+        <span class="language-logo python">PYTHON</span>
+        <span class="language-logo html">HTML</span>
+        <span class="language-logo css">CSS</span>
+        <span class="language-logo c-lang">C</span>
+    </div>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">NJ<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact" class="nav-contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <div>
+                    <span class="hero-tag">
+                        MCA Student | Aspiring Software Engineer
+                    </span>
+
+                    <h1>Hello, I'm <span>Naman Jain</span></h1>
+
+                    <h3>Building my journey in Software Development & AI</h3>
+
+                    <p>
+                        I am an MCA student at KIET Deemed to be University
+                        with a strong interest in software development,
+                        problem-solving, and emerging technologies.
+                        I enjoy learning new concepts and turning ideas
+                        into practical applications.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Projects
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+                <div class="profile-wrapper">
+                    <div class="profile-card">
+                        <div class="profile-initials">NJ</div>
+                        <h3>Naman Jain</h3>
+                        <p>Aspiring Software Engineer</p>
+                        <span class="profile-status">
+                            ● Open to Learning & Opportunities
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="section" id="about">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>About <span>Me</span></h2>
+                    <p>A little introduction about my journey</p>
+                </div>
+
+                <div class="about-card">
+                    <p>
+                        I am Naman Jain, currently pursuing my Master of
+                        Computer Applications (MCA) at KIET Deemed to
+                        be University.
+                    </p>
+
+                    <p>
+                        I completed my Bachelor of Computer Applications
+                        (BCA) from Teerthanker Mahaveer University,
+                        Moradabad, with a specialization in
+                        Mobile Application and Web Technology and an
+                        overall CGPA of 9.04.
+                    </p>
+
+                    <p>
+                        My interests include Java programming, Python,
+                        Data Structures and Algorithms, web development,
+                        and Artificial Intelligence. I believe in learning
+                        by building projects and improving through
+                        consistent practice.
+                    </p>
+
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <strong>Current Education</strong>
+                            <span>MCA, KIET Deemed to be University</span>
+                        </div>
+
+                        <div class="detail-item">
+                            <strong>Previous Education</strong>
+                            <span>BCA, TMU Moradabad</span>
+                        </div>
+
+                        <div class="detail-item">
+                            <strong>BCA CGPA</strong>
+                            <span>9.04</span>
+                        </div>
+
+                        <div class="detail-item">
+                            <strong>Career Interest</strong>
+                            <span>Software Engineering & AI</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
+        <section class="section" id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Technical <span>Skills</span></h2>
+                    <p>Technologies and concepts I am learning and working with</p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span>Java</span>
+                            <span>Python</span>
+                            <span>C</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Web Development</h3>
+                        <div class="skill-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>Bootstrap</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Backend Development</h3>
+                        <div class="skill-tags">
+                            <span>Flask</span>
+                            <span>SQLAlchemy</span>
+                            <span>Socket.IO</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Database</h3>
+                        <div class="skill-tags">
+                            <span>SQL</span>
+                            <span>SQLite</span>
+                            <span>DBMS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Tools & Platforms</h3>
+                        <div class="skill-tags">
+                            <span>Git</span>
+                            <span>GitHub</span>
+                            <span>VS Code</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Core Concepts & Interests</h3>
+                        <div class="skill-tags">
+                            <span>OOP</span>
+                            <span>DSA</span>
+                            <span>Artificial Intelligence</span>
+                            <span>Cloud Computing</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             EDUCATION
+        ========================== -->
+
+        <section class="section" id="education">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>My <span>Education</span></h2>
+                    <p>Academic background and qualifications</p>
+                </div>
+
+                <div class="education-list">
+
+                    <div class="education-item">
+                        <h3>Master of Computer Applications (MCA)</h3>
+                        <h4>KIET Deemed to be University</h4>
+                        <p>2026 – Present | First Year</p>
+                    </div>
+
+                    <div class="education-item">
+                        <h3>Bachelor of Computer Applications (BCA)</h3>
+                        <h4>Teerthanker Mahaveer University, Moradabad</h4>
+                        <p>Specialization: Mobile Application and Web Technology</p>
+                        <p>Overall CGPA: 9.04</p>
+                    </div>
+
+                    <div class="education-item">
+                        <h3>Senior Secondary Education</h3>
+                        <h4>CBSE Board</h4>
+                        <p>Completed in 2022</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section class="section" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Featured <span>Projects</span></h2>
+                    <p>Some applications I have worked on</p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <div class="project-card">
+                        <div class="project-top">SPFT / Finance</div>
+
+                        <div class="project-content">
+                            <h3>Smart Personal Finance Tracker</h3>
+
+                            <p>
+                                A unified personal and family finance
+                                management platform designed to help
+                                users manage transactions, budgets,
+                                and financial activities.
+                            </p>
+
+                            <div class="skill-tags">
+                                <span>Python</span>
+                                <span>Flask</span>
+                                <span>SQLAlchemy</span>
+                                <span>Bootstrap</span>
+                                <span>Chart.js</span>
+                                <span>Socket.IO</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://github.com/NamanJain-NJ/SPFT"
+                                   target="_blank" rel="noopener noreferrer">
+                                    View GitHub →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-top">ClassFix / Maintenance</div>
+
+                        <div class="project-content">
+                            <h3>ClassFix</h3>
+
+                            <p>
+                                A classroom-aware maintenance and asset
+                                management system designed to report,
+                                track, and resolve classroom issues
+                                through a structured workflow.
+                            </p>
+
+                            <div class="skill-tags">
+                                <span>Web Development</span>
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Database</span>
+                                <span>QR Workflow</span>
+                            </div>
+
+                            <div class="project-links">
+                                <a href="https://github.com/NamanJain-NJ/ClassFix"
+                                   target="_blank" rel="noopener noreferrer">
+                                    View GitHub →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             ACHIEVEMENTS
+        ========================== -->
+
+        <section class="section" id="achievements">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Achievements & <span>Experiences</span></h2>
+                    <p>Milestones and learning experiences</p>
+                </div>
+
+                <div class="achievement-grid">
+
+                    <div class="achievement-card">
+                        <h3>Second Position – Project Model Competition</h3>
+                        <p>
+                            Secured Second Position in the Project Model
+                            Competition at National Technology Day 2026,
+                            Teerthanker Mahaveer University, with the
+                            Smart Personal Finance Tracker project.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h3>DRDO SSPL Visit</h3>
+                        <p>
+                            Participated in an academic visit to the
+                            Solid State Physics Laboratory (SSPL),
+                            DRDO, Delhi, exploring semiconductor
+                            technologies and their defence applications.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h3>InnoTech 2026</h3>
+                        <p>
+                            Participated in the departmental round of
+                            InnoTech 2026 at KIET, presenting project
+                            work and gaining experience in a technical
+                            innovation environment.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h3>Samarthya Bodh 2.0 – Event Hosting</h3>
+                        <p>
+                            Hosted a two-day event at TMU, gaining
+                            experience in anchoring, stage coordination,
+                            communication, and public speaking.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             CERTIFICATIONS
+        ========================== -->
+
+        <section class="section" id="certifications">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Certifications & <span>Learning</span></h2>
+                    <p>Courses and credentials from my learning journey</p>
+                </div>
+
+                <div class="certification-list">
+
+                    <div class="certification-card">
+                        <div class="cert-icon">AI</div>
+                        <div>
+                            <h3>Agentic AI Certified Foundations Associate</h3>
+                            <p>Oracle</p>
+                            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=EB2E9E33D864F6F6A5F87B2B1974A3AE4D24AAC0E17470AC200C5F31C33CE07F"
+                               target="_blank" rel="noopener noreferrer">
+                                View Credential →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="certification-card">
+                        <div class="cert-icon">Py</div>
+                        <div>
+                            <h3>Python Full Stack Development</h3>
+                            <p>DUCAT</p>
+                        </div>
+                    </div>
+
+                    <div class="certification-card">
+                        <div class="cert-icon">C</div>
+                        <div>
+                            <h3>C Language</h3>
+                            <p>Infosys Springboard</p>
+                        </div>
+                    </div>
+
+                    <div class="certification-card">
+                        <div class="cert-icon">LS</div>
+                        <div>
+                            <h3>Leadership Skills</h3>
+                            <p>Great Learning</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             LEADERSHIP
+        ========================== -->
+
+        <section class="section" id="activities">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Leadership & <span>Activities</span></h2>
+                    <p>Beyond coding and academics</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>Event Hosting – Samarthya Bodh 2.0</h3>
+                    <p>
+                        Hosted the two-day Samarthya Bodh 2.0 event at
+                        Teerthanker Mahaveer University. This experience
+                        helped me improve my stage confidence, public
+                        speaking, audience engagement, and event
+                        coordination skills.
+                    </p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>Technical Learning & Team Collaboration</h3>
+                    <p>
+                        Actively involved in academic projects,
+                        technical activities, and collaborative
+                        learning experiences. I enjoy sharing ideas,
+                        working with teammates, and learning from
+                        practical challenges.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section class="section" id="contact">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Get In <span>Touch</span></h2>
+                    <p>Let's connect and share ideas</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Have an opportunity or an idea?</h3>
+
+                    <p>
+                        Feel free to connect with me for collaboration,
+                        learning opportunities, or professional
+                        conversations.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <a href="mailto:NamanJain-NJ@outlook.com">
+                            Email Me
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/nj-namanjain/"
+                           target="_blank" rel="noopener noreferrer">
+                            LinkedIn
+                        </a>
+
+                        <a href="https://github.com/NamanJain-NJ"
+                           target="_blank" rel="noopener noreferrer">
+                            GitHub
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+        <p>
+            Designed & Developed by <span>Naman Jain</span>
+        </p>
+        <p>© 2026 Naman Jain. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

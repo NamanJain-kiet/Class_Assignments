@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Search Bar</title>
+
+    <style>
+        /* Navigation Bar */
+        nav {
+            background-color: #000000;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+        }
+
+        /* Anchor Tags */
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        /* Hover Effect */
+        nav a:hover {
+            color: yellow;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            font-size: 14px;
+        }
+
+        .search-btn {
+            padding: 8px 12px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <!-- Navigation Links -->
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="blog.html">Blog</a>
+        </div>
+
+        <!-- Search Bar -->
+        <div>
+            <input type="text" placeholder="Search..." class="search-bar">
+            <button class="search-btn">Search</button>
+        </div>
+
+    </nav>
+
+</body>
+</html>
